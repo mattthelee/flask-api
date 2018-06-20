@@ -1,5 +1,6 @@
-from flaskApi import app, db
+from flaskApi import app, db, consumer
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    consumer.listAll("test")
+    return 'Debug'
