@@ -8,7 +8,7 @@ from flaskApi.errors import bad_request
 def index():
     i = 0
     msgList = []
-    for msg in consumer.listAll("test"):
+    for msg in consumer.listMessages("test"):
         i +=1
         msgList.append(msg)
         if i >= 5:
