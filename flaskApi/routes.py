@@ -1,11 +1,20 @@
-from flaskApi import app, db
+<<<<<<< HEAD
+from flaskApi import app, db, consumer
 from flaskApi.task import Task
 from flask import jsonify, request
 from flaskApi.errors import bad_request
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    i = 0
+    msgList = []
+    for msg in consumer.listAll("test"):
+        i +=1
+        msgList.append(msg)
+        if i >= 5:
+            break
+    msgString = ' '.join(str(x) for x in msgList)
+    return msgString
 
 @app.route('/v1.0/tasks/<int:id>')
 def getTask(id):
