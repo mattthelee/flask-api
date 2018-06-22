@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flaskApi import app, db, consumer
 from flaskApi.task import Task
 from flask import jsonify, request
